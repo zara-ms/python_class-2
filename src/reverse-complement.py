@@ -6,7 +6,7 @@ VERSION
     1.0
     
 AUTHOR
-	LCG	
+	LCG CCG	
     
 DESCRIPTION
 	Make the reverse complement of DNA sequence and test for python
