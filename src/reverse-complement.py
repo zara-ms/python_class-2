@@ -9,7 +9,7 @@ AUTHOR
 	
     
 DESCRIPTION
-	Make the reverse complement of DNA sequence
+	Make the reverse complement of DNA sequence and test for python
     
 CATEGORY
 	Genomic Sequence
