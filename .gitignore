@@ -1,0 +1,3 @@
+*.dat
+results/
+src/.reverse-complement.py.swp
