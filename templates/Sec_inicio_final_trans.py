@@ -5,34 +5,45 @@ final = rna.find("UAA")
 print("El codon de inicio empieza en posicion: ", inicio)
 print("Y la secuencia transcrita termina en :", final+3)
 print("La secuencia transcrita es :", rna[inicio:final+3])
-'''NAME
-	Sec_inicio_final_trans.py
+'''
+#NAME
+#Sec_inicio_final_trans.py
 
-VERSION
-	1.0
+#VERSION
+#[  # .#]
 
-AUTHOR
-	Rodel-OL
+#AUTHOR
+#[Rodelmar Ocampo] < joserodelmar@gmail.com >
+#[Other authors]: [Modifications]
 
-DESCRIPTION
-	Programa para saber donde inicia un transcrito de RNA, donde termina, y que secuencia transcribe.
-	El final de paro se le aumentan 3 unidades al momento de sacar resutado para que este incluido el triplete mencionado
+#DESCRIPTION
+#[Describe the program]
 
-CATEGORY
-	
+#CATEGORY
+#[sequence analysis]
 
-USAGE
-	
+#USAGE
+#[Sec_inicio_final_trans.py][-options / arguments]
 
-ARGUMENTS
+#ARGUMENTS
+#[name][description]
+#[name][description]
+#[name][description]
 
+#INPUT
+#[sequences of RNA]
 
-INPUT
-	rna, secuencia de RNA
+#OUTPUT
+#[Start & Stop codons positions_transcribed sequence]
 
-OUTPUT
-	inicio de la transcripcion
-	final de la transcripcion
-	secuencia transcrita
+#EXAMPLES
+#[Example 1: describe the example, El codon de inicio empieza en posicion: 1 /n Y la secuencia transcrita termina en : 6 /n La secuencia transcrita es : AUGAACUAG]
+
 
 '''
+
+
+## 1. [ describe the step 1]
+
+## 2. [ describe the step 2]
+
