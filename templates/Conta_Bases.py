@@ -3,11 +3,13 @@ print("A:", dna.count("A"), ", C:", dna.count("C"), ", G:", dna.count("G"), ", T
 
 '''
 
+GitHub [https://github.com/Rodel-OL/python_class/blob/master/templates/Conta_Bases.py]
+
 NAME 
 	Conta_Bases.py
 
 VERSION
-	[1.0]
+	[1.1]
 
 AUTHOR
 	[Rodel-OL] <joserodelmar@gmail.com>
