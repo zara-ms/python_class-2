@@ -38,7 +38,7 @@ EXAMPLES
     and homogenizes the letters of the sequences, so it becomes a file in
     a fasta format, with the same sequences]
 
-
+GITHUB [https://github.com/Rodel-OL/python_class/blob/master/templates/Arch_fasta_format.py]
 '''
 
 ## First, open and read using "with" and "as"
