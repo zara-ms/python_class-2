@@ -53,7 +53,7 @@ EXAMPLES
             0.0
             50.0]
 
-GITHUB [https://github.com/Rodel-OL/python_class/blob/master/templates/Fun_Rob.py]
+GITHUB []
 '''
 def amino_per(protein_seq, amino):
     amino_seq = protein_seq.upper()
