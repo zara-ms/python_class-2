@@ -1,7 +1,7 @@
 '''
 
 NAME
-	DrossCond.py
+	DrossoCond.py
 
 VERSION
 	[1.0]
@@ -42,14 +42,14 @@ OUTPUT
     [nombre y contenido de AT de cada gene, asi como la respuesta a 4 preguntas al final]
 
 EXAMPLES
-    [Example 1: 6-data.csv como inpput
+    [Example 1: 6-data.csv como input
     Program, Se lee cada linea del archivo .csv, y en el loop lo que se hace es
     separar cada linea en los campos que se necesitan para contestar las 4 preguntas
     y el contenido de AT de cada gene. Para contestar las preguntas, se van anadiendo
     elementos a las listas correspondientes para cada pregunta, si es que la linea en
     cuestion cumple con las condiciones al final de cada ciclo del loop]
 
-GITHUB []
+GITHUB [https://github.com/Rodel-OL/python_class/blob/master/templates/DrossoCond.py]
 '''
 # Primero se abre y se lee con "with open as", usando a reader para leer
 # las lineas y asignarle estas a gene
@@ -117,4 +117,4 @@ for line in gene:
 print("Genes de Drosophila melanogaster y simulans:", pregunta_1)
 print("Genes de entre 90 y 110 bases de longitud:", pregunta_2)
 print("Genes con contenido de AT menor a 0.5 y expresion mayor a 200:", pregunta_3)
-print("Genes que empiezan con h o k que no son de Drosophila:", pregunta_4)
+print("Genes que empiezan con h o k que no son de Drosophila melanogaster:", pregunta_4)
