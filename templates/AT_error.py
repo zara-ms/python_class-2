@@ -39,7 +39,7 @@ EXAMPLES
     y si existen errores en la ubicacion o contenido del archivo input, se imprime
     un mensaje correspondiente]
 
-GITHUB []
+GITHUB [https://github.com/Rodel-OL/python_class/blob/master/templates/AT_error.py]
 '''
 #Para poder introducir el input desde la linea de comando
 import sys
