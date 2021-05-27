@@ -46,3 +46,6 @@ GITHUB
 
 ## 2. [ describe the step 2]
 
+## GITHUB LINK [https://github.com/Rodel-OL/python_class/blob/master/templates/template2.0.py]
+## (GITHUB LINK is not part of this template)
+
