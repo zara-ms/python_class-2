@@ -48,7 +48,7 @@ EXAMPLES
 ]
 
 GITHUB
-    [link to GITHUB in designated repository]
+    [https://github.com/Rodel-OL/python_class/blob/master/templates/reg_AT.py]
 
 '''
 
