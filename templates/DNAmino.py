@@ -49,7 +49,7 @@ EXAMPLES
     'N', 'G', '_']]
 
 GITHUB
-    [link to GITHUB in designated repository]
+    [https://github.com/Rodel-OL/python_class/blob/master/templates/DNAmino.py]
 
 '''
 # Se le pide al usuario una cadena de RNA cuyo largo sea divisible entre 3
