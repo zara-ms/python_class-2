@@ -9,7 +9,8 @@ AUTHOR
 	LCG CCG IBT	
     
 DESCRIPTION
-	Make the reverse complement of DNA sequence and test for python
+	Make the reverse complement of DNA sequence and test for 
+python, only python3.
     
 CATEGORY
 	Genomic Sequence
