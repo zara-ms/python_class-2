@@ -8,7 +8,7 @@ AUTHOR
         
 
 DESCRIPTION
-        Calculate percentage of AT on a genome sequence
+        Count and get the percentage of AT on a genome sequence
 
 CATEGORY
         Genomic sequence
