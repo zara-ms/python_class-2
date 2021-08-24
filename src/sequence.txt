@@ -2,3 +2,11 @@ gcacgactactcgtcatcatcattcg
 aaaattctcttgcgcga
 acgactagctgggatcgatcga
 actgatcgatcgttgaccgctagctga
+gcacgactactcgtcatcatcattcg
+aaaattctcttgcgcga
+acgactagctgggatcgatcga
+actgatcgatcgttgaccgctagctga
+gcacgactactcgtcatcatcattcg
+aaaattctcttgcgcga
+acgactagctgggatcgatcga
+actgatcgatcgttgaccgctagctga
