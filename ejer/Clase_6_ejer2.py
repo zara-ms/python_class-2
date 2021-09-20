@@ -10,7 +10,7 @@ for gb_record in SeqIO.parse("../src/virus.gb", "genbank"):
     print(gb_record.annotations)
     version = gb_record.annotations['sequence_version']
     organismo = gb_record.annotations['organism']
-    print(version, organimso)
+    print(version, organismo)
 
 path = "../src/virus.gb"
 for gb_record in SeqIO.parse(path, "genbank"):

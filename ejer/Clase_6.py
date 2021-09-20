@@ -1,7 +1,8 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 
-path = "../src/sample.fastq"
+# path = "../src/sample.fastq"
+path = 'sample.fastq'
 mala_calidad = []
 umbral = 32
 for record in SeqIO.parse(path, "fastq"):
