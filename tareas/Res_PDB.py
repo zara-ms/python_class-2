@@ -67,7 +67,7 @@ EXAMPLES
     ]
 
 GITHUB
-    [link to GITHUB in designated repository]
+    [https://github.com/Rodel-OL/python_class/blob/master/tareas/Res_PDB.py]
 
 '''
 from Bio import PDB
