@@ -42,7 +42,7 @@ EXAMPLES
     protein_protein_small_genome : All proteins from this genome]
 
 GITHUB
-    [link to GITHUB in designated repository]
+    [https://github.com/Rodel-OL/python_class/blob/master/tareas/Entrez_prot.py]
 
 '''
 from Bio import Entrez
