@@ -46,7 +46,7 @@ GITHUB
     [https://github.com/Rodel-OL/python_class/blob/master/tareas/Entrez_auth.py]
 
 '''
-from Bio import Entrez
+from Bio import Entrez, SeqIO
 Entrez.email = "joserodelmar@gmail.com"
 print("Introduce los terminos de busqueda")
 ### In "search" the users input will be stored
