@@ -55,7 +55,7 @@ EXAMPLES
     >articulo 11008361 No es citado por el momento]
 
 GITHUB
-    [link to GITHUB in designated repository]
+    [https://github.com/Rodel-OL/python_class/blob/master/tareas/Entrez_abs.py]
 
 '''
 from Bio import Entrez
