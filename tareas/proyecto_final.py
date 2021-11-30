@@ -24,16 +24,30 @@ print("Ingrese el pais en el que desea buscar")
 country = input()
 print("Ingrese el año de publicacion que le interesa")
 year = input()
+print("Ingrese un tema de interes")
+topic = input()
 
-search2 = country + "[CNTY] AND " + year + "[PDAT]"
+search2 = country + "[CNTY] AND " + year + "[PDAT] AND " + topic + "[ALL]"
 ### through handle the terms in "search" will be looked for in pubmed database
 
-handle = Entrez.esearch(db="pubmed", term=search)
+handle = Entrez.esearch(db="pubmed", sort="relevance", term=search2)
 
-# The results that coincide with the terms in "search" are stored in result
-result = Entrez.read(handle)
-
-# in archiv, the list with the corresponding IDs will be stored
-archiv = result["IdList"]
+record = Entrez.read(handle)  # The results that coincide with the terms in "search" are stored in record
+Number = int(record["Count"])  # The number of IDs is stored in Number
+IDs = result["IdList"]  # in IDs, the list with the corresponding IDs will be stored
 handle.close()
 
+# Recortar la lista de IDs en caso de ser necesario
+if Number > 10:
+    IDs = IDs[0: 10]
+
+Authors = []  # Definir lista vacia
+
+# Obtener los primeros autores de los papers mas relevantes
+for ID in IDs:
+    handle = Entrez.esummary(db="pubmed", id=ID, retmode="xml")
+    records = Entrez.parse(handle)
+    for record in records:
+        Authors.append(record["AuthorList"][0])
+
+handle.close()
