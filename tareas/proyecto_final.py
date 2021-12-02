@@ -41,7 +41,9 @@ handle.close()
 if Number > 10:
     IDs = IDs[0: 10]
 
-Authors = []  # Definir lista vacia
+# Definir listas vacias
+Authors = []
+NumID = []
 
 # Obtener los primeros autores de los papers mas relevantes
 for ID in IDs:
@@ -49,5 +51,14 @@ for ID in IDs:
     records = Entrez.parse(handle)
     for record in records:
         Authors.append(record["AuthorList"][0])
+
+handle.close()
+
+# Obtencion del numero de publicaciones referentes al tema de interes de cada autor
+for Author in Authors:
+    termino = "(" + Author + "[AUTH] AND " + topic + "[ALL])"
+    handle = Entrez.esearch(db="pubmed", term=termino)
+    record = Entrez.read(handle)
+    NumID.append(record["Count"])
 
 handle.close()
