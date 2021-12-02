@@ -34,7 +34,7 @@ handle = Entrez.esearch(db="pubmed", sort="relevance", term=search2)
 
 record = Entrez.read(handle)  # The results that coincide with the terms in "search" are stored in record
 Number = int(record["Count"])  # The number of IDs is stored in Number
-IDs = result["IdList"]  # in IDs, the list with the corresponding IDs will be stored
+IDs = record["IdList"]  # in IDs, the list with the corresponding IDs will be stored
 handle.close()
 
 # Recortar la lista de IDs en caso de ser necesario
