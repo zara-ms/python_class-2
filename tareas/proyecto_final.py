@@ -1,31 +1,35 @@
 import argparse
 from Bio import Entrez
+# import numpy as np
+# import matplotlib.pyplot as plt
 
 Entrez.email = "joserodelmar@gmail.com"
 
-
-print("Introduce los terminos de busqueda")
-
 # Paso de parametros por argumentos
 parser = argparse.ArgumentParser(description="Busqueda de terminos en pubmed")
-parser.add_argument("-i", "--input",
+parser.add_argument("-w", "--word",
                     metavar="word of interest",
                     type=str,
                     help="Terminos a buscar",
                     required=True)
 
+# Search by country and year of publication.
+parser.add_argument("-c", "--country",
+                    metavar="country of publication",
+                    type=str,
+                    help="Pais donde se desean buscar las publicaciones",
+                    required=True)
+
+parser.add_argument("-y", "--year",
+                    metavar="year of publication",
+                    type=int,
+                    help="Fecha de publicacion del articulo",
+                    required=True)
+
 args = parser.parse_args()
-search1 = args.input
 
+search = args.country + "[CNTY] AND " + args.year + "[PDAT] AND (" + args.word + ")"
 
-# through handle the terms in "search" will be looked for in pubmed database
-
-print("Ingrese el pais en el que desea buscar")
-country = input()
-print("Ingrese el año de publicacion que le interesa")
-year = input()
-
-search2 = country + "[CNTY] AND " + year + "[PDAT]"
 ### through handle the terms in "search" will be looked for in pubmed database
 
 handle = Entrez.esearch(db="pubmed", term=search)
