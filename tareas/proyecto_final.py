@@ -39,7 +39,7 @@ topic = input()
 
 ### through handle the terms in "search" will be looked for in pubmed database
 
-handle = Entrez.esearch(db="pubmed", sort="relevance", term=search2)
+handle = Entrez.esearch(db="pubmed", sort="relevance", term=search)
 
 record = Entrez.read(handle)  # The results that coincide with the terms in "search" are stored in record
 Number = int(record["Count"])  # The number of IDs is stored in Number
