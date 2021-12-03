@@ -1,6 +1,7 @@
 import argparse
 from Bio import Entrez
-# import numpy as np
+import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 Entrez.email = "joserodelmar@gmail.com"
@@ -65,8 +66,16 @@ handle.close()
 
 def nauth (AUTH):
     AUTHP = sorted(set(AUTH))
-    ARTP = [AUTH.count(i) for i in AUTHP]
-    plt.plot(AUTHP, ARTP, "-")
+    ARTP = [list.count(i) for i in AUTHP]
+    data = {"Autores": AUTHP,
+            "Articulos": ARTP}
+ 
+    df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
+
+    plt.figure(figsize=(len(AUTHP)*2, len(AUTHP)))
+    plots = sns.barplot(x="Autores", y="Articulos", data=df)
+    
+    plt.title("Autores y numero de articulos en reelvancia")
     plt.show()
 
 
