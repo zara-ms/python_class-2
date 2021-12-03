@@ -1,7 +1,7 @@
 import argparse
 from Bio import Entrez
 # import numpy as np
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 Entrez.email = "joserodelmar@gmail.com"
 
@@ -30,12 +30,12 @@ args = parser.parse_args()
 
 search = args.country + "[CNTY] AND " + args.year + "[PDAT] AND (" + args.word + ")"
 
-print("Ingrese el pais en el que desea buscar")
-country = input()
-print("Ingrese el año de publicacion que le interesa")
-year = input()
-print("Ingrese un tema de interes")
-topic = input()
+#print("Ingrese el pais en el que desea buscar")
+#country = input()
+#print("Ingrese el año de publicacion que le interesa")
+#year = input()
+#print("Ingrese un tema de interes")
+#topic = input()
 
 ### through handle the terms in "search" will be looked for in pubmed database
 
@@ -62,6 +62,15 @@ for ID in IDs:
         Authors.append(record["AuthorList"][0])
 
 handle.close()
+
+def nauth (AUTH):
+    AUTHP = sorted(set(AUTH))
+    ARTP = [AUTH.count(i) for i in AUTH]
+    plt.plot(AUTHP, ARTP, "-")
+    plt.show()
+
+
+nauth(Authors)
 
 # Obtencion del numero de publicaciones referentes al tema de interes de cada autor
 for Author in Authors:
