@@ -65,7 +65,7 @@ handle.close()
 
 def nauth (AUTH):
     AUTHP = sorted(set(AUTH))
-    ARTP = [AUTH.count(i) for i in AUTH]
+    ARTP = [AUTH.count(i) for i in AUTHP]
     plt.plot(AUTHP, ARTP, "-")
     plt.show()
 
