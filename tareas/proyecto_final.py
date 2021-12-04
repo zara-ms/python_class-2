@@ -64,6 +64,7 @@ for ID in IDs:
 
 handle.close()
 
+# Funcion nauth para graficar los articulos de autores encontrados en la fecha determinada, solo usa los nombres de autores
 def nauth (AUTH):
     AUTHP = sorted(set(AUTH))
     ARTP = [list.count(i) for i in AUTHP]
@@ -75,17 +76,33 @@ def nauth (AUTH):
     plt.figure(figsize=(len(AUTHP)*2, len(AUTHP)))
     plots = sns.barplot(x="Autores", y="Articulos", data=df)
     
-    plt.title("Autores y numero de articulos en reelvancia")
+    plt.title("Autores y numero de articulos en reelvancia en fecha determinada")
     plt.show()
 
 
 nauth(Authors)
 
 # Obtencion del numero de publicaciones referentes al tema de interes de cada autor
-for Author in Authors:
+for Author in sorted(set(Authors)):
     termino = "(" + Author + "[AUTH] AND " + topic + "[ALL])"
     handle = Entrez.esearch(db="pubmed", term=termino)
     record = Entrez.read(handle)
     NumID.append(record["Count"])
 
 handle.close()
+
+# Funcion nauth2 para graficar los articulos totales de los autores antes encontrados, obtenidos con ["Count"]
+def nauth2 (auth, num):
+    data = {"Autores": sorted(set(auth)),
+            "Articulos": [int(j) for j in num]}
+ 
+    df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
+
+    plt.figure(figsize=(len(auth)*2, len(auth)))
+    plots = sns.barplot(x="Autores", y="Articulos", data=df)
+    
+    plt.title("Autores y numero de articulos en reelvancia totales")
+    plt.show()
+
+
+nauth2(Authors, NumID)
