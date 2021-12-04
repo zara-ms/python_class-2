@@ -10,7 +10,7 @@
 ## AUTHOR
 
     Jose Rodelmar Ocampo Luna <joserodelmar@gmail.com>
-    Daniela Goretti Castillo Leon
+    Daniela Goretti Castillo Leon <danigore22@gmail.com>
     Zara Paulina Martinez Sanchez <zaram042001@gmail.com> 
   
 ## DATE
@@ -55,14 +55,13 @@ parser.add_argument("-w", "--word",
                     help="Terminos a buscar",
                     required=True)
 
-# Argumento para pais
+# Search by country and year of publication.
 parser.add_argument("-c", "--country",
                     metavar="country of publication",
                     type=str,
                     help="Pais donde se desean buscar las publicaciones",
                     required=True)
 
-# Argumento para fecha
 parser.add_argument("-y", "--year",
                     metavar="year of publication",
                     type=int,
@@ -71,14 +70,14 @@ parser.add_argument("-y", "--year",
 
 args = parser.parse_args()
 
-search = args.country + "[CNTY] AND " + args.year + "[PDAT] AND (" + args.word + ")"
+search = args.country + "[CNTY] AND ", args.year, "[PDAT] AND (" + args.word + ")"
 
 # Busqueda de la informacion ingresada por el usuario
 handle = Entrez.esearch(db="pubmed", sort="relevance", term=search)
 
 record = Entrez.read(handle)  # Obtencion de la informacion de interes acomodada por relevancia
-Number = int(record["Count"])  
-IDs = record["IdList"]  
+Number = int(record["Count"])
+IDs = record["IdList"]
 handle.close()
 
 # Recortar la lista de IDs en caso de ser necesario
@@ -89,29 +88,31 @@ if Number > 10:
 Authors = []
 NumID = []
 
-# Obtener los primeros autores de los articulos encontrados 
+# Obtener los primeros autores de los articulos encontrados
 for ID in IDs:
     handle = Entrez.esummary(db="pubmed", id=ID, retmode="xml")
     records = Entrez.parse(handle)
-    
+
     # Guardar los autores en una lista
     for record in records:
         Authors.append(record["AuthorList"][0])
 
 handle.close()
 
-# Funcion nauth para graficar los articulos de autores encontrados en la fecha determinada, solo usa los nombres de autores
-def nauth (AUTH):
-    AUTHP = sorted(set(AUTH))
-    ARTP = [list.count(i) for i in AUTHP]
-    data = {"Autores": AUTHP,
-            "Articulos": ARTP}
- 
+
+# Funcion nauth para graficar los articulos de autores encontrados en la fecha determinada, solo usa los nombres de
+# autores
+def nauth(auth):
+    authp = sorted(set(auth))
+    artp = [list.count(i) for i in authp]
+    data = {"Autores": authp,
+            "Articulos": artp}
+
     df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
 
-    plt.figure(figsize=(len(AUTHP)*2, len(AUTHP)))
-    plots = sns.barplot(x="Autores", y="Articulos", data=df)
-    
+    plt.figure(figsize=(len(authp) * 2, len(authp)))
+    sns.barplot(x="Autores", y="Articulos", data=df)
+
     plt.title("Autores y numero de articulos en reelvancia en fecha determinada")
     plt.show()
 
@@ -127,16 +128,17 @@ for Author in sorted(set(Authors)):
 
 handle.close()
 
+
 # Funcion nauth2 para graficar los articulos totales de los autores antes encontrados, obtenidos con ["Count"]
-def nauth2 (auth, num):
+def nauth2(auth, num):
     data = {"Autores": sorted(set(auth)),
             "Articulos": [int(j) for j in num]}
- 
+
     df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
 
-    plt.figure(figsize=(len(auth)*2, len(auth)))
-    plots = sns.barplot(x="Autores", y="Articulos", data=df)
-    
+    plt.figure(figsize=(len(auth) * 2, len(auth)))
+    sns.barplot(x="Autores", y="Articulos", data=df)
+
     plt.title("Autores y numero de articulos en relevancia totales")
     plt.show()
 
