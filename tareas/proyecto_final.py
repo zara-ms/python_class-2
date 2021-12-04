@@ -134,7 +134,7 @@ nauth(Authors)
 
 # Obtencion del numero de publicaciones referentes al tema de interes de cada autor
 for Author in sorted(set(Authors)):
-    termino = "(" + Author + "[AUTH] AND " + topic + "[ALL])"
+    termino = "(" + Author + "[AUTH] AND " + args.word + "[ALL])"
     handle = Entrez.esearch(db="pubmed", term=termino)
     record = Entrez.read(handle)
     NumID.append(record["Count"])
