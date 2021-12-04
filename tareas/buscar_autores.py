@@ -42,7 +42,9 @@
     
 ## EXAMPLES
 
+buscar_autores.py -w RNA -c Russia -y 2021
 
+> Graficas de autores x articulos
 
 ## GITHUB LINK
 
@@ -75,13 +77,13 @@ parser.add_argument("-c", "--country",
 
 parser.add_argument("-y", "--year",
                     metavar="year of publication",
-                    type=int,
+                    type=str,
                     help="Fecha de publicacion del articulo",
                     required=True)
 
 args = parser.parse_args()
 
-search = args.country + "[CNTY] AND ", args.year, "[PDAT] AND " + args.word + "[ALL]"
+search = args.country + "[CNTY] AND "+ args.year+ "[PDAT] AND " + args.word + "[ALL]"
 
 # Busqueda de la informacion ingresada por el usuario
 handle = Entrez.esearch(db="pubmed", sort="relevance", term=search)
