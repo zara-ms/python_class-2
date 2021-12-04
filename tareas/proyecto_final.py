@@ -10,7 +10,7 @@
 ## AUTHOR
 
     Jose Rodelmar Ocampo Luna <joserodelmar@gmail.com>
-    Daniela Goretti Castillo Leon
+    Daniela Goretti Castillo Leon <danigore22@gmail.com>
     Zara Paulina Martinez Sanchez <zaram042001@gmail.com> 
   
 ## DATE
