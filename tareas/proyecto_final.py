@@ -1,3 +1,44 @@
+"""
+## NAME
+
+	  buscar_autores.py
+  
+## VERSION
+
+	  [1.0]
+  
+## AUTHOR
+
+    Jose Rodelmar Ocampo Luna
+    Daniela Goretti Castillo Leon
+    Zara Paulina Martinez Sanchez <zaram042001@gmail.com> 
+  
+## DATE
+
+	  03/12/2021
+  
+ ## DESCRIPTION
+ 
+     Mediante paso de argumentos el usuario puede buscar articulos referentes a algun tema de interes
+     los cuales hayan sido publicados en cierto año y pais para asi obtener los primeros autores de hasta
+     los 10 primeros articulos mas relevantes. Despues el programa grafica los articulos de los autores encontrados 
+     en la fecha determinada, asi como grafica los articulos totales de los autores antes encontrados en relacion con 
+     el tema de interes dado por el usuario.
+ 
+## CATEGORY
+
+	  Analysis
+    
+## EXAMPLES
+
+
+
+## GITHUB LINK
+
+	  https://github.com/Rodel-OL/python_class/blob/master/tareas/proyecto_final.py
+  
+"""
+
 import argparse
 from Bio import Entrez
 import pandas as pd
@@ -95,7 +136,7 @@ def nauth2 (auth, num):
     plt.figure(figsize=(len(auth)*2, len(auth)))
     plots = sns.barplot(x="Autores", y="Articulos", data=df)
     
-    plt.title("Autores y numero de articulos en reelvancia totales")
+    plt.title("Autores y numero de articulos en relevancia totales")
     plt.show()
 
 
