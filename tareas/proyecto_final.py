@@ -114,16 +114,16 @@ handle.close()
 # Funcion nauth para graficar los articulos de autores encontrados en la fecha determinada, solo usa los nombres de
 # autores
 def nauth(auth):
-    authp = sorted(set(auth))
-    artp = [list.count(i) for i in authp]
+    authp = sorted(set(auth)) # Si hay autores repetidos, se juntan
+    artp = [list.count(i) for i in authp] # Se cuenta cuantas veces aparece cada autor
     data = {"Autores": authp,
             "Articulos": artp}
 
-    df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
+    df = pd.DataFrame(data, columns=['Autores', 'Articulos']) # Se crea un data.frame con pandas
 
 
-    plt.figure(figsize=(len(authp) * 2, len(authp)))
-    sns.barplot(x="Autores", y="Articulos", data=df)
+    plt.figure(figsize=(len(authp) * 2, len(authp))) # figura del doble requerido por la longitud de nombres
+    sns.barplot(x="Autores", y="Articulos", data=df) # grafico de barras con seaborn
 
     plt.title("Autores y numero de articulos en reelvancia en fecha determinada")
 
@@ -144,13 +144,13 @@ handle.close()
 
 # Funcion nauth2 para graficar los articulos totales de los autores antes encontrados, obtenidos con ["Count"]
 def nauth2(auth, num):
-    data = {"Autores": sorted(set(auth)),
-            "Articulos": [int(j) for j in num]}
+    data = {"Autores": sorted(set(auth)), # Si hay autores repetidos se eliminan
+            "Articulos": [int(j) for j in num]} # los elementos pasan a "int" o numericos para graficarlos
 
-    df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
+    df = pd.DataFrame(data, columns=['Autores', 'Articulos']) # Se crea un data.frame con pandas
 
-    plt.figure(figsize=(len(auth) * 2, len(auth)))
-    sns.barplot(x="Autores", y="Articulos", data=df)
+    plt.figure(figsize=(len(auth) * 2, len(auth))) # figura del doble requerido por el largo de los nombres
+    sns.barplot(x="Autores", y="Articulos", data=df) # barras de datos con seaborn
 
     plt.title("Autores y numero de articulos en relevancia totales")
     plt.show()
