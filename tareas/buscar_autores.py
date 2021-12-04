@@ -48,7 +48,7 @@ buscar_autores.py -w RNA -c Russia -y 2021
 
 ## GITHUB LINK
 
-	  https://github.com/Rodel-OL/python_class/blob/master/tareas/proyecto_final.py
+	  https://github.com/Rodel-OL/python_class/blob/master/tareas/buscar_autores.py
   
 """
 
