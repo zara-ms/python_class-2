@@ -28,6 +28,17 @@
 ## CATEGORY
 
 	  Analysis
+
+## FUNCTIONS
+
+    nauth(lista de primeros autores):
+        [Grafica el numero de articulos encontrados por autor
+	con base en el tema de interes y al año ingresados]
+
+    nauth2(lista de primeros autores, numero de publicaciones totales):
+    	[Grafica el nombre de los autores con el numero total
+	de articulos publicados por la/el autor referentes al
+	tema de interes]
     
 ## EXAMPLES
 
@@ -55,14 +66,13 @@ parser.add_argument("-w", "--word",
                     help="Terminos a buscar",
                     required=True)
 
-# Argumento para pais
+# Search by country and year of publication.
 parser.add_argument("-c", "--country",
                     metavar="country of publication",
                     type=str,
                     help="Pais donde se desean buscar las publicaciones",
                     required=True)
 
-# Argumento para fecha
 parser.add_argument("-y", "--year",
                     metavar="year of publication",
                     type=int,
@@ -112,7 +122,7 @@ def nauth (AUTH):
     plt.figure(figsize=(len(AUTHP)*2, len(AUTHP)))
     plots = sns.barplot(x="Autores", y="Articulos", data=df)
     
-    plt.title("Autores y numero de articulos en reelvancia en fecha determinada")
+    plt.title("Autores y numero de articulos en relevancia en fecha determinada")
     plt.show()
 
 
@@ -120,7 +130,7 @@ nauth(Authors)
 
 # Obtencion del numero de publicaciones referentes al tema de interes de cada autor
 for Author in sorted(set(Authors)):
-    termino = "(" + Author + "[AUTH] AND " + args.word + "[ALL])"
+    termino = "(" + Author + "[AUTH] AND " + topic + "[ALL])"
     handle = Entrez.esearch(db="pubmed", term=termino)
     record = Entrez.read(handle)
     NumID.append(record["Count"])
