@@ -81,7 +81,7 @@ parser.add_argument("-y", "--year",
 
 args = parser.parse_args()
 
-search = args.country + "[CNTY] AND ", args.year, "[PDAT] AND (" + args.word + ")"
+search = args.country + "[CNTY] AND ", args.year, "[PDAT] AND " + args.word + "[ALL]"
 
 # Busqueda de la informacion ingresada por el usuario
 handle = Entrez.esearch(db="pubmed", sort="relevance", term=search)
