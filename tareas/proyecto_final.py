@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 Entrez.email = "joserodelmar@gmail.com"
 
-# Paso de parametros por argumentos
+# Paso de parametros por argumentos con informacion de cada uno
 parser = argparse.ArgumentParser(description="Busqueda de terminos en pubmed")
 parser.add_argument("-w", "--word",
                     metavar="word of interest",
@@ -31,34 +31,28 @@ args = parser.parse_args()
 
 search = args.country + "[CNTY] AND " + args.year + "[PDAT] AND (" + args.word + ")"
 
-#print("Ingrese el pais en el que desea buscar")
-#country = input()
-#print("Ingrese el año de publicacion que le interesa")
-#year = input()
-#print("Ingrese un tema de interes")
-#topic = input()
-
-### through handle the terms in "search" will be looked for in pubmed database
-
+# Busqueda de la informacion ingresada por el usuario
 handle = Entrez.esearch(db="pubmed", sort="relevance", term=search)
 
-record = Entrez.read(handle)  # The results that coincide with the terms in "search" are stored in record
-Number = int(record["Count"])  # The number of IDs is stored in Number
-IDs = record["IdList"]  # in IDs, the list with the corresponding IDs will be stored
+record = Entrez.read(handle)  # Obtencion de la informacion de interes acomodada por relevancia
+Number = int(record["Count"])  
+IDs = record["IdList"]  
 handle.close()
 
 # Recortar la lista de IDs en caso de ser necesario
 if Number > 10:
     IDs = IDs[0: 10]
 
-# Definir listas vacias
+# Definir listas vacias a utilizar
 Authors = []
 NumID = []
 
-# Obtener los primeros autores de los papers mas relevantes
+# Obtener los primeros autores de los articulos encontrados 
 for ID in IDs:
     handle = Entrez.esummary(db="pubmed", id=ID, retmode="xml")
     records = Entrez.parse(handle)
+    
+    # Guardar los autores en una lista
     for record in records:
         Authors.append(record["AuthorList"][0])
 
