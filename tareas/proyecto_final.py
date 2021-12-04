@@ -9,7 +9,7 @@
   
 ## AUTHOR
 
-    Jose Rodelmar Ocampo Luna
+    Jose Rodelmar Ocampo Luna <joserodelmar@gmail.com>
     Daniela Goretti Castillo Leon
     Zara Paulina Martinez Sanchez <zaram042001@gmail.com> 
   
@@ -55,13 +55,14 @@ parser.add_argument("-w", "--word",
                     help="Terminos a buscar",
                     required=True)
 
-# Search by country and year of publication.
+# Argumento para pais
 parser.add_argument("-c", "--country",
                     metavar="country of publication",
                     type=str,
                     help="Pais donde se desean buscar las publicaciones",
                     required=True)
 
+# Argumento para fecha
 parser.add_argument("-y", "--year",
                     metavar="year of publication",
                     type=int,
@@ -119,7 +120,7 @@ nauth(Authors)
 
 # Obtencion del numero de publicaciones referentes al tema de interes de cada autor
 for Author in sorted(set(Authors)):
-    termino = "(" + Author + "[AUTH] AND " + topic + "[ALL])"
+    termino = "(" + Author + "[AUTH] AND " + args.word + "[ALL])"
     handle = Entrez.esearch(db="pubmed", term=termino)
     record = Entrez.read(handle)
     NumID.append(record["Count"])
