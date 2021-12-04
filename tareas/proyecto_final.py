@@ -28,6 +28,17 @@
 ## CATEGORY
 
 	  Analysis
+
+## FUNCTIONS
+
+    nauth(lista de primeros autores):
+        [Grafica el numero de articulos encontrados por autor
+	con base en el tema de interes y al año ingresados]
+
+    nauth2(lista de primeros autores, numero de publicaciones totales):
+    	[Grafica el nombre de los autores con el numero total
+	de articulos publicados por la/el autor referentes al
+	tema de interes]
     
 ## EXAMPLES
 
@@ -110,10 +121,12 @@ def nauth(auth):
 
     df = pd.DataFrame(data, columns=['Autores', 'Articulos'])
 
+
     plt.figure(figsize=(len(authp) * 2, len(authp)))
     sns.barplot(x="Autores", y="Articulos", data=df)
 
     plt.title("Autores y numero de articulos en reelvancia en fecha determinada")
+
     plt.show()
 
 
@@ -121,7 +134,7 @@ nauth(Authors)
 
 # Obtencion del numero de publicaciones referentes al tema de interes de cada autor
 for Author in sorted(set(Authors)):
-    termino = "(" + Author + "[AUTH] AND " + args.word + "[ALL])"
+    termino = "(" + Author + "[AUTH] AND " + topic + "[ALL])"
     handle = Entrez.esearch(db="pubmed", term=termino)
     record = Entrez.read(handle)
     NumID.append(record["Count"])
